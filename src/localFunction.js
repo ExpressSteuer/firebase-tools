@@ -10,6 +10,8 @@ var utils = require("./utils");
  * @constructor
  * @this LocalFunction
  *
+ * @type { any }
+ *
  * @param {object} trigger
  * @param {object=} urls
  * @param {object=} controller
