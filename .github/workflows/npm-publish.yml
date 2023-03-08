@@ -1,0 +1,22 @@
+# This workflow builds the typings and publishs a package to GitHub Packages when a release is created
+
+name: Node.js Package
+
+on:
+  release:
+    types: [created]
+
+jobs:
+  build-and-release-typings:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v3
+      - uses: actions/setup-node@v3
+        with:
+          node-version: 16
+          registry-url: https://npm.pkg.github.com/
+      - run: npm ci
+      - run: npm run build:typings
+      - run: npm publish --folder ./lib
+        env:
+          NODE_AUTH_TOKEN: ${{secrets.GITHUB_TOKEN}}

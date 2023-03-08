@@ -1,0 +1,6 @@
+{
+  "name": "@types/firebase-tools",
+  "version": "11.24.1",
+  "description": "Command-Line Interface for Firebase",
+  "types": "./lib/index.d.ts"
+}
